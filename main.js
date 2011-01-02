@@ -32,7 +32,7 @@ function walk (dir, options, callback) {
 
 exports.watchTree = function ( root, options, callback ) {
   if (!callback) {callback = options; options = {}}
-  walk(root, function (err, files) {
+  walk(root, options, function (err, files) {
     var fileWatcher = function (f) {
       fs.watchFile(f, options, function (c, p) {
         files[f] = c;
